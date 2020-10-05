@@ -11,6 +11,7 @@ class Api::V1::MoviesController < ApplicationController
             render json: movie, status: :accepted
         else
             render json: {errors: movie.errors.full_message}, status: :unprocessible_entity
+        end
     end
 
     private
