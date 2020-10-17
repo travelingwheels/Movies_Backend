@@ -8,7 +8,7 @@ class Api::V1::MoviesController < ApplicationController
     def create
         movie = Movie.new(movie_params)
         if movie.save
-            render json: movie, status: :accepted
+            render json: MovieSerializer.new(movie), status: :accepted
         else
             render json: {errors: movie.errors.full_message}, status: :unprocessible_entity
         end
